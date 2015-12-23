@@ -87,13 +87,14 @@ public class ForecastFragment extends Fragment {
         forecastAdapters = new ArrayAdapter<String>(
                 getActivity(),
                 R.layout.list_item_forecast,
-                R.id.list_item_forecast_textview,
-                weekForecast
+                R.id.list_item_forecast_textview
         );
 
         ListView forecastList = (ListView) rootView.findViewById(R.id.listview_forecast);
 
         forecastList.setAdapter(forecastAdapters);
+
+        new FetchWeatherTask().execute(94043);
 
         return rootView;
     }
